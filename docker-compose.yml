@@ -1,5 +1,21 @@
 version: '2'
 services:
+  db:
+    container_name: 'disney_reservation_event_maker_mongodb'
+    restart: always
+    image: 'ladams1776/mongo'
+    command: mongod --port 27018
+    ports:
+      - '27018:27018'
+    build:
+      context: ./mongo
+      dockerfile: Dockerfile
+    volumes:
+      - disney_reservation_event_maker_db:/var/micro-data/disney_reservation_event_maker_db/data/db
+    networks:
+      disney_reservation_event_maker:
+        ipv4_address: 172.30.1.3
+
   backend:
     container_name: disney_reservation_event_maker_server
     restart: always
@@ -7,7 +23,7 @@ services:
       context: ./server
       dockerfile: Dockerfile
     ports:
-      - '3003:3003'
+      - '3008:3008'
     image: ladams1776/disney_reservation_event_maker_server
     networks:
       disney_reservation_event_maker:
@@ -20,7 +36,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - '1234:1234'
+      - '3007:3007'
     image: ladams1776/disney_reservation_event_maker_client
     networks:
       disney_reservation_event_maker:
@@ -32,3 +48,6 @@ networks:
       driver: default
       config:
         - subnet: 172.30.0.0/16
+
+volumes:
+  disney_reservation_event_maker_db:

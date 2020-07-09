@@ -1,20 +1,10 @@
-import react, { useEffect } from 'react';
-import glob from 'glob';
-import fs from 'fs';
+import react, { useEffect, useState } from 'react';
+import fetchApiData from '../../../utils/fetchApiData';
 
 const useFetchReservationEvents = (setEvents) => {
-    let yeah;
-
-    // return useEffect(() => {
-    //     glob('./resources/*.json', {},  (err, files) => {
-    //         err && console.log('error, getting any files from resources directory: ', err);
-    //         // console.log('files: ', files);
-    //         files.forEach(f => {
-    //             yeah.push(require(f));
-    //         });
-    //     });
-    //     setEvents(yeah);
-    // }, []);
+    return useEffect(() => {
+        fetchApiData('status', { method: 'GET' }, setEvents);
+    }, [setEvents]);
 };
 
 export default useFetchReservationEvents;

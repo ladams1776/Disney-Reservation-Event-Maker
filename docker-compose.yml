@@ -31,16 +31,17 @@ services:
 
   frontend:
     container_name: disney_reservation_event_maker_client
-    restart: always
     build:
       context: ./client
       dockerfile: Dockerfile
+    volumes: ['/app'] # mac
+    stdin_open: true
     ports:
-      - '3007:3007'
+      - '8081:3007'
     image: ladams1776/disney_reservation_event_maker_client
     networks:
       disney_reservation_event_maker:
-        ipv4_address: 172.30.1.1
+        ipv4_address: 172.30.1.4
 
 networks:
   disney_reservation_event_maker:

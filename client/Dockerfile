@@ -7,7 +7,7 @@ FROM node
 LABEL maintainer=`"ladams1776@yahoo.com"
 
 # comment when windows or linux
-EXPOSE 3001 
+EXPOSE 3007 
 
 RUN apt-get update
 RUN apt-get install --no-install-recommends --no-install-suggests -y yarn

@@ -10,6 +10,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 require('./src/application/utils/routes')(app);
 require('./src/application/utils/errors')(app);
 
+require('./src/infrastructure/db/connect');
 
 
 async function startServer() {

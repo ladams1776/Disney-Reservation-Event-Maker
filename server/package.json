@@ -5,7 +5,7 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest src/",
     "start": "nodemon --trace-deprecation server.js"
   },
   "proxy": "http://172.30.1.2:3008",
@@ -18,5 +18,8 @@
     "log4js": "^6.3.0",
     "mongoose": "^5.9.22",
     "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
   }
 }

@@ -4,19 +4,21 @@ const ReservationService = require('../ReservationService');
 jest.mock('../../infrastructure/repositories/ReservationRepository');
 
 describe('server/src/application/requestHandlers/__test__/ReservationService.test.js', () => {
-    describe('ReservationService', () => {
-        describe('#getAllReservations', () => {
-            it('should return what ReservationRepository.getAllReservations() returns', () => {
-                // Arrange
-                const expected = { id: 1 };
-                jest.spyOn(ReservationRepository, 'getAllReservations').mockImplementation(() => expected);
+  describe('ReservationService', () => {
+    describe('#getAllReservations', () => {
+      it('should return what ReservationRepository.getAllReservations() returns', () => {
+        // Arrange
+        const expected = { id: 1 };
+        jest
+          .spyOn(ReservationRepository, 'getAllReservations')
+          .mockImplementation(() => expected);
 
-                // Act
-                const actual = ReservationService.getAllReservations();
+        // Act
+        const actual = ReservationService.getAllReservations();
 
-                // Assert
-                expect(actual).toEqual(expected);
-            });
-        });
+        // Assert
+        expect(actual).toEqual(expected);
+      });
     });
+  });
 });

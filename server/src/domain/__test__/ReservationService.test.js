@@ -3,7 +3,7 @@ const ReservationService = require('../ReservationService');
 
 jest.mock('../../infrastructure/repositories/ReservationRepository');
 
-describe('server/src/application/requestHandlers/__test__/ReservationService.test.js', () => {
+describe('server/src/domain/__test__/ReservationService.test.js', () => {
   describe('ReservationService', () => {
     describe('#getAllReservations', () => {
       it('should return what ReservationRepository.getAllReservations() returns', () => {

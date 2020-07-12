@@ -5,7 +5,6 @@ import ReservationEventListView from '../ReservationEventListView';
 test('should render ReservationEventListView', () => {
   // Arrange
   const { container } = render(<ReservationEventListView />);
-
   // Act
 
   // Assert

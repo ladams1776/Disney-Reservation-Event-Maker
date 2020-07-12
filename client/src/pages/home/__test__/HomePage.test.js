@@ -5,7 +5,6 @@ import HomePage from '../HomePage';
 test('should render HomePage', () => {
   // Arrange
   const { container } = render(<HomePage />);
-
   // Act
 
   // Assert

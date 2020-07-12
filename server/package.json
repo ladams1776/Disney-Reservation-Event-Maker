@@ -6,7 +6,8 @@
   "main": "server.js",
   "scripts": {
     "test": "jest src/",
-    "start": "nodemon --trace-deprecation server.js"
+    "start": "nodemon --trace-deprecation server.js",
+    "prettier": "prettier --write src/"
   },
   "proxy": "http://172.30.1.2:3008",
   "author": "LA",
@@ -20,6 +21,7 @@
     "nodemon": "^2.0.2"
   },
   "devDependencies": {
-    "jest": "^26.1.0"
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5"
   }
 }

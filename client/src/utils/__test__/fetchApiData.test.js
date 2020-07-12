@@ -5,7 +5,7 @@ describe('src/utils/api/fetchApiData/__test__/fetchApiData.test.js', () => {
     // Arrange
     const url = 'some-route';
     const data = {
-      id: 1
+      id: 1,
     };
     const dispatchSpy = jest.fn().mockImplementation();
 
@@ -25,7 +25,10 @@ describe('src/utils/api/fetchApiData/__test__/fetchApiData.test.js', () => {
       await fetchApiData(url, {}, dispatchSpy);
 
       // Assert
-      expect(global.fetch).toHaveBeenNthCalledWith(1, `/api/${url}`, { "headers": { "Content-Type": "application/json" }, "method": "GET" });
+      expect(global.fetch).toHaveBeenNthCalledWith(1, `/api/${url}`, {
+        headers: { 'Content-Type': 'application/json' },
+        method: 'GET',
+      });
       expect(dispatchSpy).toHaveBeenNthCalledWith(1, data);
     });
 
@@ -38,15 +41,19 @@ describe('src/utils/api/fetchApiData/__test__/fetchApiData.test.js', () => {
       global.fetch = jest.fn().mockImplementation(() => responsePromise);
       const settings = {
         body: {
-          id: 'objectId'
-        }
+          id: 'objectId',
+        },
       };
 
       // Act
       await fetchApiData(url, settings, dispatchSpy);
 
       // Assert
-      expect(global.fetch).toHaveBeenNthCalledWith(1, `/api/${url}`, { "body": "{\"id\":\"objectId\"}", "headers": { "Content-Type": "application/json" }, "method": "POST" });
+      expect(global.fetch).toHaveBeenNthCalledWith(1, `/api/${url}`, {
+        body: '{"id":"objectId"}',
+        headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+      });
       expect(dispatchSpy).toHaveBeenNthCalledWith(1, data);
     });
 
@@ -59,19 +66,22 @@ describe('src/utils/api/fetchApiData/__test__/fetchApiData.test.js', () => {
       global.fetch = jest.fn().mockImplementation(() => responsePromise);
       const settings = {
         body: {
-          id: 'objectId'
+          id: 'objectId',
         },
-        method: 'PUT'
+        method: 'PUT',
       };
 
       // Act
       await fetchApiData(url, settings, dispatchSpy);
 
       // Assert
-      expect(global.fetch).toHaveBeenNthCalledWith(1, `/api/${url}`, { "body": "{\"id\":\"objectId\"}", "headers": { "Content-Type": "application/json" }, "method": "PUT" });
+      expect(global.fetch).toHaveBeenNthCalledWith(1, `/api/${url}`, {
+        body: '{"id":"objectId"}',
+        headers: { 'Content-Type': 'application/json' },
+        method: 'PUT',
+      });
       expect(dispatchSpy).toHaveBeenNthCalledWith(1, data);
     });
-
 
     it("should successfully call fetch with a GET method type, but will return an empty array, when not an 'ok' status", async () => {
       // Arrange
@@ -83,8 +93,8 @@ describe('src/utils/api/fetchApiData/__test__/fetchApiData.test.js', () => {
 
       const settings = {
         body: {
-          id: 'objectId'
-        }
+          id: 'objectId',
+        },
       };
 
       const expected = [];
@@ -93,9 +103,12 @@ describe('src/utils/api/fetchApiData/__test__/fetchApiData.test.js', () => {
       await fetchApiData(url, settings, dispatchSpy);
 
       // Assert
-      expect(global.fetch).toHaveBeenNthCalledWith(1, `/api/${url}`, { "body": "{\"id\":\"objectId\"}", "headers": { "Content-Type": "application/json" }, "method": "POST" });
+      expect(global.fetch).toHaveBeenNthCalledWith(1, `/api/${url}`, {
+        body: '{"id":"objectId"}',
+        headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+      });
       expect(dispatchSpy).toHaveBeenNthCalledWith(1, expected);
-
     });
   });
 });

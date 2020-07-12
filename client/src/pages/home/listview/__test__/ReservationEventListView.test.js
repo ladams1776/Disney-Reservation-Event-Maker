@@ -1,8 +1,8 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import ReservationEventListView from "../ReservationEventListView";
+import React from 'react';
+import { render } from '@testing-library/react';
+import ReservationEventListView from '../ReservationEventListView';
 
-test("should render ReservationEventListView", () => {
+test('should render ReservationEventListView', () => {
   // Arrange
   const { container } = render(<ReservationEventListView />);
 

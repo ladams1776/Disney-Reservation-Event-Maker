@@ -1,8 +1,8 @@
-import React from "react";
-import { render } from "@testing-library/react";
-import HomePage from "../HomePage";
+import React from 'react';
+import { render } from '@testing-library/react';
+import HomePage from '../HomePage';
 
-test("should render HomePage", () => {
+test('should render HomePage', () => {
   // Arrange
   const { container } = render(<HomePage />);
 

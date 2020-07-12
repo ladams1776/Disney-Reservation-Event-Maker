@@ -1,7 +1,8 @@
 const ReservationService = require('../../domain/ReservationService');
 
-function getAllReservations(req, res) {
-    res.status(200).jsonp({ items: ReservationService.getAllReservations() });
+const getAllReservations = async (req, res) => {
+    const reservations = await ReservationService.getAllReservations();
+    res.status(200).jsonp({ items: reservations });
 }
 
 module.exports = getAllReservations;

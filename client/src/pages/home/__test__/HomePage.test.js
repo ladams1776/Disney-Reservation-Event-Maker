@@ -1,22 +1,12 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import HomePage from '../HomePage';
+import React from "react";
+import { render } from "@testing-library/react";
+import HomePage from "../HomePage";
 
-test('should render HomePage', () => {
-  // Arrange
-  const { container } = render(<HomePage />);
+test("should render HomePage", () => {
+  // Arrange  
   // Act
+  const { getByTestId } = render(<HomePage />);
 
   // Assert
-  expect(container.firstChild).toMatchInlineSnapshot(`
-    <div>
-      HomePage!
-      <div>
-        This will be a listview
-      </div>
-      <div>
-        Reservation Form
-      </div>
-    </div>
-  `);
-});
+  expect(getByTestId("homepage")).toBeInTheDocument();
+}); 

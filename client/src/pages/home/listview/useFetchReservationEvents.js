@@ -1,9 +1,9 @@
-import react, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import fetchApiData from '../../../utils/fetchApiData';
 
 const useFetchReservationEvents = (setEvents) => {
   return useEffect(() => {
-    fetchApiData('status', { method: 'GET' }, setEvents);
+    fetchApiData('reservations', { method: 'GET' }, setEvents);
   }, [setEvents]);
 };
 

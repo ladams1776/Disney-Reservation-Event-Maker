@@ -8,20 +8,20 @@ const fetchApiData = async (url, { body, ...settings }, dispatch) => {
     headers: {
       ...headers,
       ...settings.headers,
-    },
+    }
   };
 
   if (body) config.body = JSON.stringify(body);
 
   const response = await fetch(`/${url}`, config);
   const data = await response.json();
-  if (response.ok) dispatch(data);
+  if (response.ok) dispatch(data.items);
   else dispatch([]);
 };
 
 fetchApiData.PropType = {
   url: PropType.string.isRequired,
-  dispatch: PropType.func.isRequired,
+  dispatch: PropType.func.isRequired
 };
 
 export default fetchApiData;

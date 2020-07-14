@@ -1,19 +1,13 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import AddReservationForm from '../AddReservationForm';
+import React from "react";
+import { render } from "@testing-library/react";
+import AddReservationForm from "../AddReservationForm";
 
-test('should render AddReservationForm', () => {
+test("should render AddReservationForm", () => {
   // Arrange
-  const { container } = render(<AddReservationForm />);
+  const { getByTestId } = render(<AddReservationForm />);
 
   // Act
 
   // Assert
-  expect(container.firstChild).toMatchInlineSnapshot(`
-    <div
-      class="form"
-    >
-      Reservation Form
-    </div>
-  `);
+  expect(getByTestId("form"));
 });

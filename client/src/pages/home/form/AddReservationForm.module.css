@@ -1,4 +1,5 @@
 .form {
   min-width: 600px;
   background-color: green;
+  flex: 5;
 }

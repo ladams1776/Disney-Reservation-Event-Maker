@@ -1,18 +1,17 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import ReservationEventListView from '../ReservationEventListView';
+import React from "react";
+import { render } from "@testing-library/react";
+import ReservationEventListView from "../ReservationEventListView";
 
-test('should render ReservationEventListView', () => {
+import useFetchReservationEvents from '../useFetchReservationEvents';
+
+jest.mock('../useFetchReservationEvents');
+
+test("should render ReservationEventListView", () => {
   // Arrange
-  const { container } = render(<ReservationEventListView />);
   // Act
+  const { getByTestId } = render(<ReservationEventListView />);
 
   // Assert
-  expect(container.firstChild).toMatchInlineSnapshot(`
-    <div
-      class="listView"
-    >
-      This will be a listview
-    </div>
-  `);
+  expect(getByTestId("listview")).toBeInTheDocument();
+  expect(useFetchReservationEvents).toHaveBeenCalledTimes(1);
 });

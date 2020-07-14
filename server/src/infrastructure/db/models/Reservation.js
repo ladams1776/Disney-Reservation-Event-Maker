@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const ReservationSchema = new mongoose.Schema({
-  id: { type: Number, index: true },
+  _id: { type: Number, index: true },
   name: {
     type: String,
   },

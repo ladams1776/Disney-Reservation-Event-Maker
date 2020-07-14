@@ -1,0 +1,27 @@
+.title {
+  display: block;
+  font-weight: 800;
+}
+
+.name {
+  padding: 2px;
+  margin: 2px;
+}
+
+.subTitle {
+  display: block;
+  font-weight: 500;
+}
+
+.dates {
+  padding: 2px;
+  margin: 2px;
+}
+
+.dates::after {
+  content: ' - ';
+  font-weight: 800;
+}
+
+.times {
+}

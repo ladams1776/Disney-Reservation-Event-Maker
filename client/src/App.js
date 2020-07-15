@@ -1,8 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import HomePage from './pages/home/HomePage';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
+import HomePage from "./pages/home/HomePage";
 
-export default function BasicExample() {
+export default () => {
   return (
     <Router>
       <div>
@@ -10,6 +13,6 @@ export default function BasicExample() {
           <HomePage />
         </Route>
       </div>
-    </Router>
+    </Router >
   );
-}
+};

@@ -1,5 +1,35 @@
 .form {
-  min-width: 600px;
-  background-color: green;
   flex: 5;
+  width: 500px;
+  margin: 4em auto;
+}
+
+.name,
+.url,
+.partySize,
+.date,
+.select {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.input {
+  height: 40px;
+  font-size: 24px;
+}
+
+.label {
+  font-size: 12px;
+}
+
+.submit {
+  float: right;
+  background: #186cdbde;
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  width: 100px;
+  height: 50px;
+  font-weight: bold;
 }

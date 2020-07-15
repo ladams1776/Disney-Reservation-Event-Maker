@@ -1,8 +1,7 @@
 import React from 'react';
 import DatePicker from 'components/DatePicker';
-import cn from 'classname';
 import styles from './AddReservationForm.module.css';
-import TimeSelect from './TimeSelect/TimeSelect';
+import TimeSelect from './TimeSelect';
 
 const AddReservationForm = () => <div className={styles.form} data-testid="form">
   <form action="post" className={styles.form}>

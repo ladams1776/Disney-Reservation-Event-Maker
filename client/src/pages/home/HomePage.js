@@ -4,15 +4,10 @@ import AddReservationForm from './form/AddReservationForm';
 import styles from './HomePage.module.css';
 
 const HomePage = () => {
-  return (
-    <div>
-      HomePage!
-      <div className={styles.page} data-testid="homepage">
-        <ReservationEventListView />
-        <AddReservationForm />
-      </div>
-    </div>
-  );
+  return <div className={styles.page} data-testid="homepage">
+    <ReservationEventListView />
+    <AddReservationForm />
+  </div>
 };
 
 export default HomePage;

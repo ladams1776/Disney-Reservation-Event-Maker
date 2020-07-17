@@ -1,20 +1,59 @@
-import React from 'react';
-import DatePicker from 'components/DatePicker';
+import React, { useState, useRef, useMemo, useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
+import cn from 'classname';
+import DateSelect from 'components/DateSelect';
 import styles from './AddReservationForm.module.css';
 import TimeSelect from './TimeSelect';
+import fetchApiData from '../../../utils/fetchApiData';
 
-const AddReservationForm = () => <div className={styles.form} data-testid="form">
-  <form action="post" className={styles.form}>
-    <div className={styles.name}><input name="name" type="text" placeholder="name of reservation" className={styles.input} /><label className={styles.label}>Name</label></div>
-    <div className={styles.url}><input name="url" type="text" placeholder="url" className={styles.input} /><label className={styles.label}>Url</label></div>
-    <div className={styles.partySize}><input name="partySize" type="number" placeholder="partySize" defaultValue="3" className={styles.input} /><label className={styles.label}>Party Size</label></div>
-    <div className={styles.select}><TimeSelect className={styles.input} /><label className={styles.label}>Times</label></div>
-    <div className={styles.date}>
-      <DatePicker />
-      <label className={styles.label}>Dates</label>
-    </div>
-    <input type="submit" value="Submit" className={styles.submit} />
-  </form>
-</div>
+const DEFAULT_PARTY_SIZE_FOR_THE_FAM = 3;
+
+const useFormSetup = () => {
+  const [name, setName] = useState('');
+  const [url, setUrl] = useState('');
+  const [partySize, setPartySize] = useState(DEFAULT_PARTY_SIZE_FOR_THE_FAM);
+  const [time, setTime] = useState('80000714');
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+
+  const { push } = useHistory();
+  const dispatch = () => push('/');
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    fetchApiData('reservations', { method: 'POST', body: { name, url, partySize, time, startDate, endDate } }, dispatch);
+  };
+
+  return { name, setName, url, setUrl, partySize, setPartySize, time, setTime, startDate, setStartDate, endDate, setEndDate, handleSubmit };
+};
+
+const AddReservationForm = () => {
+
+
+  const { name, setName, url, setUrl, partySize, setPartySize, time, setTime, startDate, setStartDate, endDate, setEndDate, handleSubmit } = useFormSetup();
+
+  return (<div className={styles.form} data-testid="form">
+    <form action="post" className={styles.form} onSubmit={e => handleSubmit(e)}>
+      <div className={styles.name}><input name="name" type="text" placeholder="name of reservation" className={styles.input} value={name} onChange={e => setName(e.target.value)} /><label className={styles.label}>Name</label></div>
+      <div className={styles.url}><input name="url" type="text" placeholder="url" className={styles.input} value={url} onChange={e => setUrl(e.target.value)} /><label className={styles.label}>Url</label></div>
+      <div className={styles.partySize}><input name="partySize" type="number" placeholder="partySize" className={styles.input} value={partySize} onChange={e => setPartySize(e.target.value)} /><label className={styles.label}>Party Size</label></div>
+      <div className={styles.select}><TimeSelect className={styles.input} value={time} onChange={e => setTime(e.target.value)} /><label className={styles.label}>Times</label></div>
+      <div className={styles.date}>
+        <div className={styles.startDate}>
+          <DateSelect date={startDate} setDate={setStartDate} />
+        </div>
+        <div className={styles.endDate}>
+          <DateSelect date={endDate} setDate={setEndDate} />
+        </div>
+      </div>
+      <div className={styles.date}>
+        <label className={cn(styles.startDate, styles.startLabel)}>Start Date</label>
+        <label className={cn(styles.endDate, styles.endLabel)}>End Date</label>
+      </div>
+      <input type="submit" value="Submit" className={styles.submit} />
+    </form>
+  </div>);
+};
 
 export default AddReservationForm;

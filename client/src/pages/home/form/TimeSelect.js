@@ -1,8 +1,8 @@
 import React from 'react';
 
-const TimeSelect = ({ className }) => {
-    return <select type="select" className={className} defaultValue="80000714">
-        <option value="80000712" label="Breakfast" selected="selected">Breakfast</option>
+const TimeSelect = ({ className, value, onChange }) => {
+    return <select type="select" className={className} defaultValue={value} onChange={onChange}>
+        <option value="80000712" label="Breakfast" >Breakfast</option>
         <option value="80000713" label="Brunch">Brunch</option>
         <option value="80000717" label="Lunch">Lunch</option>
         <option value="80000714" label="Dinner">Dinner</option>

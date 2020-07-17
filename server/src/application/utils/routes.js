@@ -1,4 +1,5 @@
 const getAllReservations = require('../requestHandlers/getAllReservations');
+const addReservation = require('../requestHandlers/addReservation');
 
 const routes = (app) => {
   app.get('/status', (req, res) => {
@@ -9,6 +10,7 @@ const routes = (app) => {
   });
 
   app.get('/reservations', getAllReservations);
+  app.post('/add-reservations', addReservation);
 };
 
 module.exports = routes;

@@ -22,7 +22,7 @@ const useFormSetup = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    fetchApiData('reservations', { method: 'POST', body: { name, url, partySize, time, startDate, endDate } }, dispatch);
+    fetchApiData('add-reservations', { method: 'POST', body: { name, url, partySize, time, startDate, endDate } }, dispatch);
   };
 
   return { name, setName, url, setUrl, partySize, setPartySize, time, setTime, startDate, setStartDate, endDate, setEndDate, handleSubmit };

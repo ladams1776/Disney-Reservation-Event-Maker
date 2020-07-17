@@ -12,11 +12,14 @@ const ReservationSchema = new mongoose.Schema({
   partySize: {
     type: Number,
   },
-  dates: {
-    type: [String],
+  startDate: {
+    type: String,
+  },
+  endDate: {
+    type: String,
   },
   times: {
-    type: [String],
+    type: String,
   },
 });
 

@@ -18,7 +18,7 @@ const ReservationSchema = new mongoose.Schema({
   endDate: {
     type: String,
   },
-  times: {
+  time: {
     type: String,
   },
 });

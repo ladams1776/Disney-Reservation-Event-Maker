@@ -5,6 +5,7 @@ db.reservations.insertOne({
     name: 'testing reservation',
     url: 'a test url',
     partySize: 4,
-    dates: ['4/14/2020', '4/15/2020'],
-    times: ['10:00 AM']
+    startDate: '4/14/2020',
+    endDate: '4/15/2020',
+    time: '10:00 AM'
 });

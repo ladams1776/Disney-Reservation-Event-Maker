@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Reservation.module.css';
 
-const Reservation = ({ name, times, dates }) => {
+const Reservation = ({ name, time, startDate, endDate }) => {
   return (
     <div>
       <div className={styles.title}>
@@ -9,9 +9,9 @@ const Reservation = ({ name, times, dates }) => {
       </div>
       <div className={styles.subTitle}>
         <span className={styles.dates}>
-          {dates.reduce((acc, date) => date)}
+          {startDate}-{endDate}
         </span>
-        <span className={styles.time}>{times.reduce((acc, time) => time)}</span>
+        <span className={styles.time}>{time}</span>
       </div>
     </div>
   );

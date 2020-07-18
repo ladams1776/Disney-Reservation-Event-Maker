@@ -1,3 +1,9 @@
+.reservation {
+  border-bottom: solid 1px gray;
+  margin-top: 4px;
+  padding-top: 1em;
+}
+
 .title {
   display: block;
   font-weight: 800;

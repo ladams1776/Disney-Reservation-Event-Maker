@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from './ReservationEventListView.module.css';
 import useFetchReservationEvents from './useFetchReservationEvents';
 import Reservation from './Reservation/Reservation';
+import styles from './ReservationEventListView.module.css';
 
 const ReservationEventListView = () => {
   const [events, setEvents] = useState([]);
@@ -10,7 +10,7 @@ const ReservationEventListView = () => {
   return (
     <div className={styles.listView} data-testid="listview">
       {events.map((event) => (
-        <div key={event._id}>
+        <div key={event._id} className={styles.reservation}>
           <Reservation {...event} />
         </div>
       ))}

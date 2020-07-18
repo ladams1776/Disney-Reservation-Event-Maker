@@ -1,7 +1,6 @@
 db.auth('admin-user', 'admin-password')
 
 db.reservations.insertOne({
-    _id: 1,
     name: 'testing reservation',
     url: 'a test url',
     partySize: 4,

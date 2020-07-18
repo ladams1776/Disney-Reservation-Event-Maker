@@ -3,7 +3,7 @@ import fetchApiData from '../../../utils/fetchApiData';
 
 const useFetchReservationEvents = (setEvents) => {
   return useEffect(() => {
-    fetchApiData('reservations', { method: 'GET' }, setEvents);
+    fetchApiData('api/reservations', { method: 'GET' }, setEvents);
   }, [setEvents]);
 };
 

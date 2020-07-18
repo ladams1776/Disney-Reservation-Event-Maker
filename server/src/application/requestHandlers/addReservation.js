@@ -1,12 +1,9 @@
 const ReservationService = require('../../domain/ReservationService');
 
-const addReservation = (req, res) => {
-    const response = res => (item) => {
-        res.status(301).jsonp({ items: item });
+module.exports = async (req, res) => {
+    const response = (item) => {
+        res.status(301).jsonp({ ok: true, items: item });
     }
-    const r = response(res);
-    console.log('what is req', req.body);
-    ReservationService.addReservation(req.body, r);
+    const reservation = await ReservationService.addReservation(req.params.id);
+    response(reservation);
 };
-
-module.exports = addReservation;

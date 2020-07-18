@@ -1,5 +1,4 @@
-import React, { useState, useRef, useMemo, useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
 import cn from 'classname';
 import DateSelect from 'components/DateSelect';
 import styles from './AddReservationForm.module.css';
@@ -16,13 +15,11 @@ const useFormSetup = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
-  const { push } = useHistory();
-  const dispatch = () => push('/');
-
   const handleSubmit = event => {
     event.preventDefault();
+    const dispatch = () => { window.location.reload() };
 
-    fetchApiData('add-reservations', { method: 'POST', body: { name, url, partySize, time, startDate, endDate } }, dispatch);
+    fetchApiData('api/reservations', { method: 'POST', body: { name, url, partySize, time, startDate, endDate } }, dispatch);
   };
 
   return { name, setName, url, setUrl, partySize, setPartySize, time, setTime, startDate, setStartDate, endDate, setEndDate, handleSubmit };

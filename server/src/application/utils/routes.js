@@ -1,16 +1,18 @@
 const getAllReservations = require('../requestHandlers/getAllReservations');
 const addReservation = require('../requestHandlers/addReservation');
+const getReservation = require('../requestHandlers/getReservation');
 
 const routes = (app) => {
-  app.get('/status', (req, res) => {
+  app.get('/api/status', (req, res) => {
     res.status(200).jsonp({ success: true }).end();
   });
-  app.head('/status', (req, res) => {
+  app.head('/api/status', (req, res) => {
     res.status(200).end();
   });
 
-  app.get('/reservations', getAllReservations);
-  app.post('/add-reservations', addReservation);
+  app.get('/api/reservation', getReservation);
+  app.get('/api/reservations', getAllReservations);
+  app.post('/api/reservations', addReservation);
 };
 
 module.exports = routes;

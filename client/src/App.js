@@ -12,6 +12,13 @@ export default () => {
         <Route exact path="/">
           <HomePage />
         </Route>
+
+        <Route
+          exact
+          path="/:id"
+          render={props => <HomePage {...props} />}
+        />
+
       </div>
     </Router >
   );

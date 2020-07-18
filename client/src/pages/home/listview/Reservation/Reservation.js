@@ -3,7 +3,7 @@ import styles from './Reservation.module.css';
 
 const Reservation = ({ name, time, startDate, endDate }) => {
   return (
-    <div>
+    <div className={styles.reservation}>
       <div className={styles.title}>
         <span className={styles.name}>{name}</span>
       </div>

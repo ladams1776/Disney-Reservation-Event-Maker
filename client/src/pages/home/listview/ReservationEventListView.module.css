@@ -3,6 +3,7 @@
   background-color: lightgrey;
   flex: 1;
   padding: 5px;
+  overflow-y: scroll;
 }
 
 .reservation {

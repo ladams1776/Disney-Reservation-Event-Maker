@@ -1,3 +1,7 @@
+.container {
+  height: 600px;
+}
+
 .page {
   display: flex;
   height: 100%;

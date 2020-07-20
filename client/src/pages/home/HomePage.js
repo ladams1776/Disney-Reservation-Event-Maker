@@ -7,26 +7,29 @@ import EditReservationForm from './form/EditReservationForm';
 
 const HomePage = ({ match }) => {
   const id = match?.params?.id;
-  console.log('HomePage', id)
+  console.log('HomePage', id);
 
   if (!id) {
-    return <div className={styles.container}>
-      <Navbar />
-      <div className={styles.page} data-testid="homepage">
-        <ReservationEventListView />
-        <AddReservationForm />
+    return (
+      <div className={styles.container}>
+        <Navbar />
+        <div className={styles.page} data-testid="homepage">
+          <ReservationEventListView />
+          <AddReservationForm />
+        </div>
       </div>
-    </div>
+    );
   } else {
-    return <div className={styles.container}>
-      <Navbar />
-      <div className={styles.page} data-testid="homepage">
-        <ReservationEventListView />
-        <EditReservationForm id={id} />
+    return (
+      <div className={styles.container}>
+        <Navbar />
+        <div className={styles.page} data-testid="homepage">
+          <ReservationEventListView />
+          <EditReservationForm id={id} />
+        </div>
       </div>
-    </div>
+    );
   }
-
 };
 
 export default HomePage;

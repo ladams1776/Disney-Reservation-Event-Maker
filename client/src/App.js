@@ -1,9 +1,6 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-} from "react-router-dom";
-import HomePage from "./pages/home/HomePage";
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import HomePage from './pages/home/HomePage';
 
 export default () => {
   return (
@@ -13,13 +10,8 @@ export default () => {
           <HomePage />
         </Route>
 
-        <Route
-          exact
-          path="/:id"
-          render={props => <HomePage {...props} />}
-        />
-
+        <Route exact path="/:id" render={(props) => <HomePage {...props} />} />
       </div>
-    </Router >
+    </Router>
   );
 };

@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 const Reservation = ({ _id, name, time, startDate, endDate }) => {
   const { push } = useHistory();
 
-  const onClick = event => {
+  const onClick = (event) => {
     event.preventDefault();
     push(`/${_id}`);
   };

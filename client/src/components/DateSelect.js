@@ -5,7 +5,7 @@ import styles from './DateSelect.module.css';
 
 const DateSelect = ({ date, setDate }) => (
     <DatePicker
-        selected={date}
+        selected={new Date(date || new Date())}
         onChange={e => setDate(e)}
         className={styles.date}
     />

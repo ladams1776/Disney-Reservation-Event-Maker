@@ -2,8 +2,8 @@ const ReservationRepository = require('../infrastructure/repositories/Reservatio
 
 const ReservationService = {
   getAllReservations: () => ReservationRepository.getAllReservations(),
-  getReservation: id => ReservationRepository.getReservation(id),
-  addReservation: (reservation, res) => ReservationRepository.addReservation(reservation, res),
+  getReservation: (id, responder) => ReservationRepository.getReservation(id, responder),
+  addReservation: (reservation) => ReservationRepository.addReservation(reservation),
 };
 
 module.exports = ReservationService;

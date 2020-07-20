@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import cn from 'classname';
 import DateSelect from 'components/DateSelect';
-import styles from './AddReservationForm.module.css';
 import TimeSelect from './TimeSelect';
 import fetchApiData from '../../../utils/fetchApiData';
+import styles from './AddReservationForm.module.css';
 
 const DEFAULT_PARTY_SIZE_FOR_THE_FAM = 3;
 
@@ -26,11 +26,10 @@ const useFormSetup = () => {
 };
 
 const AddReservationForm = () => {
-
-
   const { name, setName, url, setUrl, partySize, setPartySize, time, setTime, startDate, setStartDate, endDate, setEndDate, handleSubmit } = useFormSetup();
 
   return (<div className={styles.form} data-testid="form">
+    <h1>Add Reservation</h1>
     <form action="post" className={styles.form} onSubmit={e => handleSubmit(e)}>
       <div className={styles.name}><input name="name" type="text" placeholder="name of reservation" className={styles.input} value={name} onChange={e => setName(e.target.value)} /><label className={styles.label}>Name</label></div>
       <div className={styles.url}><input name="url" type="text" placeholder="url" className={styles.input} value={url} onChange={e => setUrl(e.target.value)} /><label className={styles.label}>Url</label></div>

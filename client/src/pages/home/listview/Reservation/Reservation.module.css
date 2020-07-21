@@ -4,6 +4,10 @@
   padding-top: 1em;
 }
 
+.isSelected {
+  background-color: purple;
+}
+
 .title {
   display: block;
   font-weight: 800;

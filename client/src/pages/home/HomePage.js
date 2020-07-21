@@ -24,7 +24,7 @@ const HomePage = ({ match }) => {
       <div className={styles.container}>
         <Navbar />
         <div className={styles.page} data-testid="homepage">
-          <ReservationEventListView />
+          <ReservationEventListView selectedId={id} />
           <EditReservationForm id={id} />
         </div>
       </div>

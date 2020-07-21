@@ -1,8 +1,9 @@
 import React from 'react';
-import styles from './Reservation.module.css';
+import cn from 'classname';
 import { useHistory } from 'react-router-dom';
+import styles from './Reservation.module.css';
 
-const Reservation = ({ _id, name, time, startDate, endDate }) => {
+const Reservation = ({ _id, name, time, startDate, endDate, isSelected }) => {
   const { push } = useHistory();
 
   const onClick = (event) => {
@@ -11,7 +12,7 @@ const Reservation = ({ _id, name, time, startDate, endDate }) => {
   };
 
   return (
-    <div className={styles.reservation} onClick={onClick}>
+    <div className={cn(styles.reservation, { [styles.isSelected]: isSelected })} onClick={onClick} >
       <div className={styles.title}>
         <span className={styles.name}>{name}</span>
       </div>

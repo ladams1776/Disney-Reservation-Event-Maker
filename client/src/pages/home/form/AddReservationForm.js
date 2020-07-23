@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import cn from 'classname';
-import DateSelect from 'components/DateSelect';
 import TimeSelect from './TimeSelect';
 import fetchApiData from '../../../utils/fetchApiData';
-import styles from './AddReservationForm.module.css';
+import DateFields from './DateFields';
+import styles from './ReservationForm.module.css';
 
 const DEFAULT_PARTY_SIZE_FOR_THE_FAM = 3;
+const DEFAULT_DINNER_FOR_THE_FAM = '80000714';
 
 const useFormSetup = () => {
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
   const [partySize, setPartySize] = useState(DEFAULT_PARTY_SIZE_FOR_THE_FAM);
-  const [time, setTime] = useState('80000714');
+  const [time, setTime] = useState(DEFAULT_DINNER_FOR_THE_FAM);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -62,8 +62,7 @@ const AddReservationForm = () => {
     setStartDate,
     endDate,
     setEndDate,
-    handleSubmit,
-  } = useFormSetup();
+    handleSubmit } = useFormSetup();
 
   return (
     <div className={styles.form} data-testid="form">
@@ -114,22 +113,13 @@ const AddReservationForm = () => {
           />
           <label className={styles.label}>Times</label>
         </div>
-        <div className={styles.date}>
-          <div className={styles.startDate}>
-            <DateSelect date={startDate} setDate={setStartDate} />
-          </div>
-          <div className={styles.endDate}>
-            <DateSelect date={endDate} setDate={setEndDate} />
-          </div>
-        </div>
-        <div className={styles.date}>
-          <label className={cn(styles.startDate, styles.startLabel)}>
-            Start Date
-          </label>
-          <label className={cn(styles.endDate, styles.endLabel)}>
-            End Date
-          </label>
-        </div>
+        <DateFields
+          setEndDate={setEndDate}
+          setStartDate={setStartDate}
+          startDate={startDate}
+          endDate={endDate}
+        />
+
         <input type="submit" value="Submit" className={styles.submit} />
       </form>
     </div>

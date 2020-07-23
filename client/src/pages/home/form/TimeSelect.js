@@ -5,7 +5,7 @@ const TimeSelect = ({ className, value, onChange }) => {
     <select
       type="select"
       className={className}
-      defaultValue={value}
+      value={value}
       onChange={onChange}
     >
       <option value="80000712" label="Breakfast">

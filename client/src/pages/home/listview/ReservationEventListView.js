@@ -10,12 +10,12 @@ const ReservationEventListView = ({ selectedId = null }) => {
   return (
     <div className={styles.listView} data-testid="listview">
       {events.map((event) => {
-        const isSelected = (selectedId === event._id);
+        const isSelected = selectedId === event._id;
         return (
           <div key={event._id} className={styles.reservation}>
             <Reservation {...event} isSelected={isSelected} />
           </div>
-        )
+        );
       })}
     </div>
   );

@@ -1,11 +1,12 @@
 .reservation {
-  border-bottom: solid 1px gray;
   margin-top: 4px;
-  padding-top: 1em;
+  padding: 1em;
+  overflow-x: ellipse;
+  text-transform: capitalize;
 }
 
 .isSelected {
-  background-color: purple;
+  background-color: #a2a2a2;
 }
 
 .title {
@@ -16,22 +17,4 @@
 .name {
   padding: 2px;
   margin: 2px;
-}
-
-.subTitle {
-  display: block;
-  font-weight: 500;
-}
-
-.dates {
-  padding: 2px;
-  margin: 2px;
-}
-
-.dates::after {
-  content: ' - ';
-  font-weight: 800;
-}
-
-.times {
 }

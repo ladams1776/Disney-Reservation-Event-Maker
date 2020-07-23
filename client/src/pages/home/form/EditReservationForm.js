@@ -12,7 +12,7 @@ const useFormSetup = (_id) => {
     const [name, setName] = useState('');
     const [url, setUrl] = useState('');
     const [partySize, setPartySize] = useState(DEFAULT_PARTY_SIZE_FOR_THE_FAM);
-    const [time, setTime] = useState('');
+    const [time, setTime] = useState(DEFAULT_DINNER_FOR_THE_FAM);
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 

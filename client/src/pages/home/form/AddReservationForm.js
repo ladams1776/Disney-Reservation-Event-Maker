@@ -62,7 +62,8 @@ const AddReservationForm = () => {
     setStartDate,
     endDate,
     setEndDate,
-    handleSubmit } = useFormSetup();
+    handleSubmit,
+  } = useFormSetup();
 
   return (
     <div className={styles.form} data-testid="form">

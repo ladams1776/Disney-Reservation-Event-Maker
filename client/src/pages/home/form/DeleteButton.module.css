@@ -1,0 +1,24 @@
+.deleteButton {
+  display: flex;
+}
+
+.button {
+  margin-top: 1em;
+  background: #db187dc7;
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  width: 100px;
+  height: 50px;
+  font-weight: bold;
+}
+
+.button:disabled {
+  background: #db187d2b;
+}
+
+.checkbox {
+  width: 24px;
+  height: 24px;
+  margin-top: 2.5em;
+}

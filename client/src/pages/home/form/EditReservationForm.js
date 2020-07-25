@@ -9,10 +9,9 @@ import DeleteButton from './DeleteButton';
 const DEFAULT_PARTY_SIZE_FOR_THE_FAM = 3;
 const DEFAULT_DINNER_FOR_THE_FAM = '80000714';
 
-
-const newNoteHandler = e => {
+const newNoteHandler = (e) => {
   e.preventDefault();
-  window.location = "/";
+  window.location = '/';
 };
 
 const useFormSetup = (_id) => {
@@ -90,7 +89,9 @@ const EditReservationForm = ({ id }) => {
     <div className={styles.form} data-testid="form">
       <title className={styles.title}>
         <h1>Edit Reservation</h1>
-        <button className={styles.newButton} onClick={newNoteHandler}>+</button>
+        <button className={styles.newButton} onClick={newNoteHandler}>
+          +
+        </button>
       </title>
       <form action="post" className={styles.form}>
         <div className={styles.name}>

@@ -9,9 +9,7 @@ describe('server/src/infrastructure/repositories/__test__/ReservationRepository.
       it('should return what Reservation.find() returns', () => {
         // Arrange
         const expected = { id: 1 };
-        jest
-          .spyOn(Reservation, 'find')
-          .mockImplementation(() => expected);
+        jest.spyOn(Reservation, 'find').mockImplementation(() => expected);
 
         // Act
         const actual = ReservationRepository.getAllReservations();

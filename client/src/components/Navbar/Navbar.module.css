@@ -1,4 +1,7 @@
 .navbar {
   display: block;
   height: 40px;
+  font-size: 24px;
+  padding: 5px;
+  margin: 5px;
 }

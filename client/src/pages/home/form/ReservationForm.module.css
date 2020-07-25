@@ -35,3 +35,15 @@
   display: flex;
   justify-content: space-between;
 }
+
+.title {
+  display: flex;
+}
+
+.newButton {
+  margin: auto 20px;
+  border-radius: 20px;
+  height: 20px;
+  width: 20px;
+  padding: 1px;
+}

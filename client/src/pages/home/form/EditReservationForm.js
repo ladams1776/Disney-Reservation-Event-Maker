@@ -9,6 +9,12 @@ import DeleteButton from './DeleteButton';
 const DEFAULT_PARTY_SIZE_FOR_THE_FAM = 3;
 const DEFAULT_DINNER_FOR_THE_FAM = '80000714';
 
+
+const newNoteHandler = e => {
+  e.preventDefault();
+  window.location = "/";
+};
+
 const useFormSetup = (_id) => {
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
@@ -82,8 +88,10 @@ const EditReservationForm = ({ id }) => {
 
   return (
     <div className={styles.form} data-testid="form">
-      <h1>Edit Reservation</h1>
-      {/* //@TODO: Insert the new button here. */}
+      <title className={styles.title}>
+        <h1>Edit Reservation</h1>
+        <button className={styles.newButton} onClick={newNoteHandler}>+</button>
+      </title>
       <form action="post" className={styles.form}>
         <div className={styles.name}>
           <input

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import moment from 'moment';
 import TimeSelect from './TimeSelect';
 import fetchApiData from '../../../utils/fetchApiData';
 import useFetchReservation from './useFetchReservation';
@@ -9,9 +10,10 @@ import DeleteButton from './DeleteButton';
 const DEFAULT_PARTY_SIZE_FOR_THE_FAM = 3;
 const DEFAULT_DINNER_FOR_THE_FAM = '80000714';
 
-const newNoteHandler = (e) => {
+
+const newNoteHandler = e => {
   e.preventDefault();
-  window.location = '/';
+  window.location = "/";
 };
 
 const useFormSetup = (_id) => {
@@ -28,11 +30,19 @@ const useFormSetup = (_id) => {
     const dispatch = () => {
       window.location.reload();
     };
+
+    const dateString = new Date(startDate);
+    const sDate = moment(dateString).format('MM/DD/YYYY');
+
+    const date = new Date(endDate).toDateString();
+    const eDate = moment(date).format('MM/DD/YYYY');
+
+
     fetchApiData(
       'api/reservations',
       {
         method: 'PUT',
-        body: { name, url, partySize, time, startDate, endDate, _id },
+        body: { name, url, partySize, time, startDate: sDate, endDate: eDate, _id },
       },
       dispatch
     );
@@ -89,9 +99,7 @@ const EditReservationForm = ({ id }) => {
     <div className={styles.form} data-testid="form">
       <title className={styles.title}>
         <h1>Edit Reservation</h1>
-        <button className={styles.newButton} onClick={newNoteHandler}>
-          +
-        </button>
+        <button className={styles.newButton} onClick={newNoteHandler}>+</button>
       </title>
       <form action="post" className={styles.form}>
         <div className={styles.name}>
